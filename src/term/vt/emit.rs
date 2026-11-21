@@ -87,7 +87,11 @@ pub fn cup(out: &mut Vec<u8>, row: u16, col: u16) {
 
 pub fn cursor_style(out: &mut Vec<u8>, style: CursorStyle) {
   out.extend_from_slice(b"\x1b[");
-  num(out, style as i64);
+  let ps = match style {
+    CursorStyle::Default => 7,
+    other => other as i64,
+  };
+  num(out, ps);
   out.extend_from_slice(b" q");
 }
 

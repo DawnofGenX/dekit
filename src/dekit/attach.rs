@@ -1110,7 +1110,7 @@ mod tests {
       .unwrap()
       .expect("painted");
     assert!(
-      first.starts_with(b"\x1b[0m\x1b[?25h\x1b[0 q"),
+      first.starts_with(b"\x1b[0m\x1b[?25h\x1b[7 q"),
       "{:?}",
       String::from_utf8_lossy(&first)
     );

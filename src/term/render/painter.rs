@@ -424,7 +424,7 @@ mod tests {
     let s = String::from_utf8_lossy(&out);
     // Cursor after the text, shown, default style.
     assert!(s.contains("\x1b[?25h"), "{s:?}");
-    assert!(s.contains("\x1b[0 q"), "{s:?}");
+    assert!(s.contains("\x1b[7 q"), "{s:?}");
     let out = paint(&mut painter, &frame_of("abc\x1b[?25l"));
     assert_eq!(out, b"\x1b[?2026h\x1b[?25l\x1b[?2026l");
   }
